@@ -76,7 +76,7 @@ int main(){
     
     intro();
     do{
-        cout << "Electro Shop >>"; cin >> input;
+        cout << "Electro Shop >> "; cin >> input;
         transform(input.begin(), input.end(), input.begin(), ::toupper);
 
         // Condition if its not "EXIT"
