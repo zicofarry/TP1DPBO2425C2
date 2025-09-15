@@ -65,7 +65,7 @@ void cLeng(vector<Electronic> v){
         colId = max(colId, static_cast<int>(to_string(i.getId()).length())); if(colId % 2 == 1) colId++;
         colName = max(colName, static_cast<int>(i.getName().length())); if(colName % 2 == 1) colName++;
         colCategory = max(colCategory, static_cast<int>(i.getCategory().length())); if(colCategory % 2 == 1) colCategory++;
-        colPrice = max(colPrice, static_cast<int>(to_string(i.getPrice()).length())); if(colPrice % 2 == 1) colPrice++;
+        colPrice = max(colPrice, static_cast<int>(to_string(i.getPrice()).length())); if(colPrice % 2 == 0) colPrice++;
     }
 }
 
