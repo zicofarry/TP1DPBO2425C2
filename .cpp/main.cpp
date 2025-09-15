@@ -137,6 +137,7 @@ int main(){
                     head(colId, colName, colCategory, colPrice);
                     for(Electronic i : v) row(i.getId(), i.getName(), i.getCategory(), i.getPrice(), colId, colName, colCategory, colPrice);
                     foot(colId, colName, colCategory, colPrice);
+                    cout << "Displaying " << v.size() << " record(s).\n\n";
                 }
             }else if(input == "HELP"){
                 cout << "Command Help:\n";
