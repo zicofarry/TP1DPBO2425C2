@@ -1,7 +1,5 @@
 <?php
-// =================================================================
 // List and CLI Handler Refactored into Single File
-// =================================================================
 require_once('Electronic.php');
 if (session_status() == PHP_SESSION_NONE) { session_start(); }
 // session_destroy();
@@ -136,9 +134,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'list') {
     exit;
 }
 
-// =================================================================
 // Main program
-// =================================================================
 $images = glob('images/*.*', GLOB_BRACE);
 ?>
 <!DOCTYPE html>
@@ -200,9 +196,10 @@ $images = glob('images/*.*', GLOB_BRACE);
                 </div>
         </section>
         <section class="w-1/3 h-full">
-            <div class="flex flex-col justify-between h-full card text-white bg-gray-900 dark:bg-black p-4 rounded-lg shadow-lg">
+            <div class="flex flex-col justify-between h-full card bg-gray-900 dark:bg-black p-4 rounded-lg shadow-lg">
+
                 <div>
-                    <h2 class="font-bold mb-4 text-center">Electronics CLI</h2>
+                    <h2 class="font-bold mb-4 text-center border-gray-300 dark:border-gray-600">Electronics CLI</h2>
                     <div id="cli" class="h-[calc(80vh-120px)] overflow-y-auto bg-black p-3 font-mono text-sm rounded-lg">
                         <p class="text-green-400">Welcome to Electronics CLI!</p>
                         <p class="text-green-400">Type 'HELP' to see available commands.</p>
