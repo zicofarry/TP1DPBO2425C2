@@ -1,0 +1,2 @@
+ADD "Iphone 13 PRO MAX" "Handphone" 13000000 "ip13pm.jpg"
+ADD "TV LG" "Television" 25000000 "lg.jpg"

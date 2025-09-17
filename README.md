@@ -11,7 +11,7 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 
 # Dokumentasi & Penjelasan
 Untuk alur dalam __C++__, __Java__, dan __Python__, Setelah program dijalankan, user dapat memilih satu dari enam opsi command:
-- `ADD` untuk menambahkan data baru (ADD "\<Name\>" "\<Category\>" \<Price\>),
+- `ADD` untuk menambahkan data baru (ADD "[Name]" "[Category]" \<Price\>),
 - `DELETE` untuk menghapus data (DELETE \<ID\>),
 - `UPDATE` untuk mengubah data (UPDATE \<ID\> "\<Name\>" "\<Category\>" \<Price\>),
 - `SEARCH` untuk mencari data berdasarkan nama (SEARCH "\<Name\>"),
