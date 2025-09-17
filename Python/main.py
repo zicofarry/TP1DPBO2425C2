@@ -1,5 +1,18 @@
 from Electronic import *
 from tabulate import tabulate
+import time
+
+# ANSI warna
+RESET = "\033[0m"
+BRIGHT_RED = "\033[91m"
+BRIGHT_BLUE = "\033[94m"
+BRIGHT_YELLOW = "\033[93m"
+GREEN = "\033[92m"
+PINK = "\033[95m"
+CYAN = "\033[96m"
+RED = "\033[31m"
+BLUE = "\033[34m"
+
 
 # Procedure to print the intro
 def intro():
@@ -7,10 +20,108 @@ def intro():
     print("||         Welcome to Electronic Shop!         ||")
     print("=================================================\n")
 
+def delay():
+    time.sleep(0.1)
+
+def outro():
+    print((BRIGHT_RED + "+" + BRIGHT_BLUE + "~") * 29 + BRIGHT_RED + "+")
+    delay()
+
+    print(" " + (BRIGHT_YELLOW + "-" + GREEN + "-") * 28 + BRIGHT_YELLOW + "-")
+    delay()
+
+    print(PINK + "  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+    delay()
+    print("   \\\\        " + BRIGHT_YELLOW + "SELAMAT TINGGAL DI ELECTRONIC SHOP" + PINK + "       //")
+    delay()
+    print("    \\\\         " + BRIGHT_YELLOW + "TUGAS PRAKTIKUM 1 (TP1) DESAIN" + PINK + "        //")
+    delay()
+    print("     \\\\           " + BRIGHT_YELLOW + "PEMROGRAMAN BERORIENTASI" + PINK + "          //")
+    delay()
+    print("      \\\\            " + BRIGHT_YELLOW + "OBJEK (DPBO), GACOR!!" + PINK + "          //")
+    delay()
+    print("       \\\\                 " + BRIGHT_YELLOW + "MANTAP!!" + PINK + "                // ")
+    delay()
+    print(PINK + "        vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" + RESET)
+    delay()
+
+    print(CYAN + "         -----------------------------------------")
+    delay()
+    print(RED + "          ~+~+~+~~+~ " + BRIGHT_YELLOW + "SEMOGA KITA SEMUA" + RED + " +~+~+~+~+~")
+    delay()
+    print(GREEN + "           ~+~+~+~+~+~+ " + BRIGHT_YELLOW + "MASUK SURGA" + GREEN + " +~+~+~+~+~+~")
+    delay()
+    print(BLUE + "            ~+~+~+~+~+~+~+ " + BRIGHT_YELLOW + "AAMIIN" + BLUE + " ~+~+~+~+~+~+~")
+    delay()
+    print(CYAN + "              --------------------------------")
+    delay()
+    print(BRIGHT_YELLOW + "                vvvvvvvvvvvvvvvvvvvvvvvvvvvv")
+    delay()
+    print("                  \\\\\\\\\\\\\\\\\\\\\\\\////////////")
+    delay()
+    print("                             \\/")
+    delay()
+    print("                               " + RED)
+    delay()
+    print("                             ❤" + RESET)
+
+def help():
+    print("============================================================================")
+    print("|+------------------------------------------------------------------------+|")
+    print("||                                                                        ||")
+    print("||     <<<<<<<<<<<<<  BUKU PANDUAN MENGGUNAKAN KODE  >>>>>>>>>>>>>        ||")
+    print("||                                                                        ||")
+    print("||     1. Pilih Masukan Perintah Dengan Format Seperti Di Bawah.          ||")
+    print("||        TIDAK CASE SENSITIVE!!!!                                        ||")
+    print("||        a. Perintah Langsung:                                           ||")
+    print("||           HELP                                                         ||")
+    print("||           -Berfungsi Untuk Menampilkan Buku Panduan.                   ||")
+    print("||           SHOW                                                         ||")
+    print("||           -Berfungsi Untuk Menampilkan Data Saat Ini.                  ||")
+    print("||           EXIT                                                         ||")
+    print("||           -Berfungsi Untuk Mengakhiri Program.                         ||")
+    print("||                                                                        ||")
+    print("||        b. Perintah Data:                                               ||")
+    print("||             +----------+                                               ||")
+    print("||             | PERINTAH |                                               ||")
+    print("||             +----------+                                               ||")
+    print("||             |  INSERT  |                                               ||")
+    print("||             |  UPDATE  |                                               ||")
+    print("||             |  DELETE  |                                               ||")
+    print("||             |  SEARCH  |                                               ||")
+    print("||             +----------+                                               ||")
+    print("||                                                                        ||")
+    print("||     2. Jika Anda Memilih INSERT. Maka Tulis Nama, Kategori, dan        ||")
+    print("||        Harga (String Wajib Diapit Dengan Tanda Petik Dua,              ||")
+    print("||        CTH: \"Handphone\")                                               ||")
+    print("||        FORMAT QUERY :                                                  ||")
+    print("||          INSERT \"[Nama]\" \"[Kategori]\" [Harga]                          ||")
+    print("||                                                                        ||")
+    print("||     3. Jika Anda Memilih UPDATE. Maka Tulis ID, Nama, Kategori         ||")
+    print("||        dan Harga (String Wajib Diapit Dengan Tanda Petik Dua,          ||")
+    print("||        CTH: \"Handphone\")                                               ||")
+    print("||        FORMAT QUERY :                                                  ||")
+    print("||          UPDATE [ID] \"[Nama]\" \"[Kategori]\" [Harga]                     ||")
+    print("||                                                                        ||")
+    print("||     4. Jika Anda Memilih DELETE, Cukup Tulis ID Nya Saja.              ||")
+    print("||        FORMAT QUERY :                                                  ||")
+    print("||          DELETE [ID]                                                   ||")
+    print("||                                                                        ||")
+    print("||     5. Jika Anda Memilih SEARCH. Maka Cukup Tuliskan Nama.             ||")
+    print("||        (String Wajib Diapit Dengan Tanda Petik Dua, CTH: \"Handphone\")  ||")
+    print("||        FORMAT QUERY :                                                  ||")
+    print("||          SEARCH \"[Nama]\"                                               ||")
+    print("||                                                                        ||")
+    print("||                                                                        ||")
+    print("|+------------------------------------------------------------------------+|")
+    print("============================================================================")
+    print("")
+
 # Main function of the program
 def main():
     idx = 1
     v = []
+    help()
     intro()
 
     stop = False
@@ -21,6 +132,7 @@ def main():
 
         if in_cmd == "EXIT":
             stop = True
+            outro()
         
         elif in_cmd == "INSERT":
             parts = str.split('"')
@@ -55,7 +167,7 @@ def main():
             nama = parts[1].strip
 
             if not v:
-                print("ERROR: Data is empty!\n")
+                print("Data is empty!\n")
             else:
                 found = False
                 i = 0
@@ -74,16 +186,16 @@ def main():
 
         elif in_cmd == "SHOW":
             if not v:
-                print("ERROR: Data is empty!\n")
+                print("Data is empty!\n")
             else:
                 data = []
                 for row in v:
-                    data = [[row.getId(), row.getName(), row.getCategory(), row.getPrice()]]
-                    print(tabulate(data, headers=["ID", "NAME", "CATEGORY", "PRICE"], tablefmt="grid"))
-                    print(f"Displaying {len(v)} record(s).\n")
+                    data.append([row.getId(), row.getName(), row.getCategory(), row.getPrice()])
+                print(tabulate(data, headers=["ID", "NAME", "CATEGORY", "PRICE"], tablefmt="grid"))
+                print(f"Displaying {len(v)} record(s).\n")
 
         elif in_cmd == "HELP":
-            print("Command Help:")
+            help()
 
         else:
             print("ERROR: Command not found!\n")
