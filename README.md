@@ -123,18 +123,18 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
     <img src="Dokumentasi/cpp/cpp2.png" style="width: 32%;">
     <img src="Dokumentasi/cpp/cpp3.png" style="width: 32%;">
     <img src="Dokumentasi/cpp/cpp4.png" style="width: 32%;">
-    <img src="Dokumentasi/cpp/cpp5.png" style="width: 32%;">
+    <!-- <img src="Dokumentasi/cpp/cpp5.png" style="width: 32%;"> -->
     <img src="Dokumentasi/cpp/cpp6.png" style="width: 32%;">
 </div>
 
 ## JAVA
 <div>
-    <img src="Dokumentasi/java1.png" style="width: 32%;">
-    <img src="Dokumentasi/java2.png" style="width: 32%;">
-    <img src="Dokumentasi/java3.png" style="width: 32%;">
-    <img src="Dokumentasi/java4.png" style="width: 32%;">
-    <img src="Dokumentasi/java5.png" style="width: 32%;">
-    <img src="Dokumentasi/java6.png" style="width: 32%;">
+    <img src="Dokumentasi/java/java1.png" style="width: 32%;">
+    <img src="Dokumentasi/java/java2.png" style="width: 32%;">
+    <img src="Dokumentasi/java/java3.png" style="width: 32%;">
+    <img src="Dokumentasi/java/java4.png" style="width: 32%;">
+    <!-- <img src="Dokumentasi/java/java5.png" style="width: 32%;"> -->
+    <img src="Dokumentasi/java/java6.png" style="width: 32%;">
 </div>
 
 ## PYTHON
@@ -143,7 +143,7 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
     <img src="Dokumentasi/py/py2.png" style="width: 32%;">
     <img src="Dokumentasi/py/py3.png" style="width: 32%;">
     <img src="Dokumentasi/py/py4.png" style="width: 32%;">
-    <img src="Dokumentasi/py/py5.png" style="width: 32%;">
+    <!-- <img src="Dokumentasi/py/py5.png" style="width: 32%;"> -->
     <img src="Dokumentasi/py/py6.png" style="width: 32%;">
 </div>
 
@@ -153,6 +153,6 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
     <img src="Dokumentasi/php/php2.png" style="width: 32%;">
     <img src="Dokumentasi/php/php3.png" style="width: 32%;">
     <img src="Dokumentasi/php/php4.png" style="width: 32%;">
-    <img src="Dokumentasi/php/php5.png" style="width: 32%;">
+    <!-- <img src="Dokumentasi/php/php5.png" style="width: 32%;"> -->
     <img src="Dokumentasi/php/php6.png" style="width: 32%;">
 </div>
