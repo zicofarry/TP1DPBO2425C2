@@ -2,6 +2,7 @@
 Saya Muhammad 'Azmi Salam dengan NIM 2406010 mengerjakan Tugas Praktikum 1 pada Mata Kuliah Desain dan Pemrograman Berorientasi Objek (DPBO) untuk keberkahan-Nya maka saya tidak melakukan kecurangan seperti yang telah dispesifikasikan. Aamiin
 
 # Struktur File
+```
 Main
 ├── CPP/
 │ ├── Elektronic.cpp
@@ -45,6 +46,7 @@ Main
 │      ├── php5.php
 │      └── php6.php
 └── README.md
+```
 
 # Desain
 Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut berikut:
