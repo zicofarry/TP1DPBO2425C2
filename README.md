@@ -7,15 +7,19 @@ Main
 ├── CPP/
 │ ├── Elektronic.cpp
 │ └── main.cpp
+│
 ├── Java/
 │ ├── Elektronic.java
 │ └── Main.java
+│
 ├── Python/
 │ ├── elektronic.py
 │ └── main.py
+│
 ├── PHP/
 │ ├── Elektronic.php
 │ └── index.php
+│
 ├── Dokumentasi/
 │ ├── cpp
 │ |    ├── cpp1.php
@@ -24,6 +28,7 @@ Main
 │ |    ├── cpp4.php
 │ |    ├── cpp5.php
 │ |    └── cpp6.php
+│ |
 │ ├── java
 │ |    ├── java1.php
 │ |    ├── java2.php
@@ -31,6 +36,7 @@ Main
 │ |    ├── java4.php
 │ |    ├── java5.php
 │ |    └── java6.php
+│ |
 │ ├── py
 │ |    ├── py1.php
 │ |    ├── py2.php
@@ -38,6 +44,7 @@ Main
 │ |    ├── py4.php
 │ |    ├── py5.php
 │ |    └── py6.php
+│ |
 │ └── php
 │      ├── php1.php
 │      ├── php2.php
@@ -45,6 +52,7 @@ Main
 │      ├── php4.php
 │      ├── php5.php
 │      └── php6.php
+│
 └── README.md
 ```
 
