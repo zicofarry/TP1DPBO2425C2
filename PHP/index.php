@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $addPhoto = trim($addParts[5]);
             $list[] = new Electronic($newId, $addName, $addCategory, $addPrice, $addPhoto);
             $newId++;
-            $response["message"] = 'A new electronic data has been added.';
+            $response["message"] = "SUCCESS: A new data has been added.";
             $response["refresh"] = true;
             break;
 
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     break;
                 }
             }
-            $response["message"] = "Data with ID $deleteId has been deleted.";
+            $response["message"] = "SUCCSESS: Data with ID $deleteId has been deleted.";
             $response["refresh"] = true;
             break;
 
@@ -60,13 +60,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $item->setCategory($updateCategory);
                     $item->setPrice($updatePrice);
                     $item->setPhoto($updatePhoto);
-                    $response["message"] = "Data with ID $updateId has been updated.";
+                    $response["message"] = "SUCCESS: Data with ID $updateId has been updated.";
                     $response["refresh"] = true;
                     $found = true;
                     break;
                 }
             }
-            if (!$found) $response["message"] = "Data with ID $updateId not found.";
+            if (!$found) $response["message"] = "ERROR: Data with ID $updateId not found.";
             break;
 
         case 'SEARCH':
@@ -82,19 +82,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     break; 
                 }
             }
-            if (!$found) $response["message"] = "Data with name '{$searchName}' not found.";
+            if (!$found) $response["message"] = "ERROR: Data with name '{$searchName}' not found.";
             break;
 
         case 'HELP':
             $response["message"] = 'Command available:<br>';
-            $response["message"] .= '1. ADD "name" "category" price "photo"<br>';
-            $response["message"] .= '2. DELETE ID<br>';
-            $response["message"] .= '3. UPDATE ID "name" "category" price "photo"<br>';
+            $response["message"] .= '1. INSERT "name" "category" price "photo"<br>';
+            $response["message"] .= '2. UPDATE ID "name" "category" price "photo"<br>';
+            $response["message"] .= '3. DELETE ID<br>';
             $response["message"] .= '4. SEARCH "name"<br>';
             break;
 
         default:
-            $response["message"] = 'Command not found! Type HELP for available commands.';
+            $response["message"] = "ERROR: Command not found! Type HELP for available commands.";
     }
     $_SESSION['list'] = $list;
     echo json_encode($response);
@@ -170,6 +170,10 @@ $images = glob('images/*.*', GLOB_BRACE);
     <nav class="card flex justify-between items-center px-8 h-[10vh] shadow-md sticky top-0 z-20 border-b">
         <h1 class="font-bold text-xl">⚡ Electronics Shop</h1>
         <div class="flex items-center gap-4">
+            <button id="mode-toggle" class="focus:outline-none p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <svg id="mode-icon-cli" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" /><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" /></svg>
+                <svg id="mode-icon-form" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+            </button>
             <button id="theme-toggle" class="focus:outline-none p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
                 <svg id="theme-icon-light" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m8.66-15.66l-.7.7M4.04 19.96l-.7.7M21 12h-1M4 12H3m15.66 8.66l-.7-.7M4.04 4.04l-.7-.7M12 18a6 6 0 100-12 6 6 0 000 12z"></path></svg>
                 <svg id="theme-icon-dark" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
@@ -196,8 +200,8 @@ $images = glob('images/*.*', GLOB_BRACE);
                 </div>
         </section>
         <section class="w-1/3 h-full">
-            <div class="flex flex-col justify-between h-full card bg-gray-900 dark:bg-black p-4 rounded-lg shadow-lg">
-
+            <div id="cli-view" class="flex flex-col justify-between h-full card bg-gray-900 dark:bg-black p-4 rounded-lg shadow-lg">
+            <!-- <div id="cli-view" class="flex-col justify-between h-full bg-gray-900 text-gray-200 p-4 rounded-lg shadow-lg"> -->
                 <div>
                     <h2 class="font-bold mb-4 text-center border-gray-300 dark:border-gray-600">Electronics CLI</h2>
                     <div id="cli" class="h-[calc(80vh-120px)] overflow-y-auto bg-black p-3 font-mono text-sm rounded-lg">
@@ -210,16 +214,116 @@ $images = glob('images/*.*', GLOB_BRACE);
                     <input type="text" id="cli-input" class="w-full p-2 pl-8 bg-gray-800 text-green-300 border border-gray-700 rounded-lg outline-none focus:ring-2 focus:ring-green-500" placeholder="Enter command...">
                 </div>
             </div>
+
+            <div id="form-view" class="hidden h-full bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+                <div id="form-action-select" class="h-full flex flex-col justify-center gap-4">
+                    <button data-form="insert" class="form-button form-button-green">INSERT Data</button>
+                    <button data-form="update" class="form-button form-button-blue">UPDATE Data</button>
+                    <button data-form="delete" class="form-button form-button-red">DELETE Data</button>
+                    <button data-form="search" class="form-button form-button-gray">SEARCH Data</button>
+                </div>
+
+                <div id="form-container" class="hidden">
+                    <button id="back-to-actions" class="text-sm text-blue-500 hover:underline mb-4">&lt; Back to actions</button>
+                    <h2 id="form-title" class="text-xl font-bold mb-4"></h2>
+                    
+
+                    <form id="insert-form" class="space-y-4">
+                        <input type="hidden" id="insert-id" name="id">
+                        <div>
+                            <label for="insert-name" class="form-label">Name</label>
+                            <input type="text" id="insert-name" name="name" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="insert-category" class="form-label">Category</label>
+                            <input type="text" id="insert-category" name="category" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="insert-price" class="form-label">Price (Rp)</label>
+                            <input type="number" id="insert-price" name="price" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="insert-photo" class="form-label">Photo Filename</label>
+                            <input type="text" id="insert-photo" name="photo" class="form-input" required>
+                        </div>
+                        <button type="submit" id="form-submit-button" class="form-button">Submit</button>
+                    </form>
+                    
+                    <form id="update-form" class="space-y-4">
+                        <div>
+                            <label for="update-id" class="form-label">ID</label>
+                            <input type="text" id="update-id" name="id" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="update-name" class="form-label">Name</label>
+                            <input type="text" id="update-name" name="name" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="update-category" class="form-label">Category</label>
+                            <input type="text" id="update-category" name="category" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="update-price" class="form-label">Price (Rp)</label>
+                            <input type="number" id="update-price" name="price" class="form-input" required>
+                        </div>
+                        <div>
+                            <label for="update-photo" class="form-label">Photo Filename</label>
+                            <input type="text" id="update-photo" name="photo" class="form-input" required>
+                        </div>
+                        <button type="submit" id="form-submit-button" class="form-button">Submit</button>
+                    </form>
+
+                    <form id="delete-form" class="space-y-4">
+                        <div id="delete-prompt">
+                            <label for="form-id-delete" class="form-label">ID to Delete</label>
+                            <input type="text" id="form-id-delete" name="id" class="form-input" required>
+                        </div>
+                        <button type="submit" id="form-submit-button-alt" class="form-button">Submit</button>
+                    </form>
+                    <form id="search-form" class="space-y-4">
+                        <div id="search-input-container">
+                            <label for="form-search-name" class="form-label">Name to Search</label>
+                            <input type="text" id="form-search-name" name="name" class="form-input" required>
+                        </div>
+                        <button type="submit" id="form-submit-button-alt" class="form-button">Submit</button>
+                    </form>
+                </div>
+            </div>
         </section>
     </main>
 
     <script>
+         // === ELEMENT SELECTORS ===
+        const cliView = document.getElementById('cli-view');
+        const formView = document.getElementById('form-view');
         const cli = document.getElementById('cli');
         const cliInput = document.getElementById('cli-input');
+        const tableContainer = document.getElementById('table-container');
+
+        // Theme Toggle
         const themeToggle = document.getElementById('theme-toggle');
         const lightIcon = document.getElementById('theme-icon-light');
         const darkIcon = document.getElementById('theme-icon-dark');
         const html = document.documentElement;
+
+        // Mode Toggle
+        const modeToggle = document.getElementById('mode-toggle');
+        const cliIcon = document.getElementById('mode-icon-cli');
+        const formIcon = document.getElementById('mode-icon-form');
+
+        // Form Elements
+        const formActionSelect = document.getElementById('form-action-select');
+        const formContainer = document.getElementById('form-container');
+        const backToActionsBtn = document.getElementById('back-to-actions');
+        const formTitle = document.getElementById('form-title');
+        const insertForm = document.getElementById('insert-form');
+        const UpdateForm = document.getElementById('update-form');
+        const deleteForm = document.getElementById('delete-form');
+        const SearchForm = document.getElementById('search-form');
+        const formSubmitButton = document.getElementById('form-submit-button');
+        const formSubmitButtonAlt = document.getElementById('form-submit-button-alt');
+        const deletePrompt = document.getElementById('delete-prompt');
+        const searchInputContainer = document.getElementById('search-input-container');
 
         // --- Theme Toggler Logic ---
         function applyTheme(theme) {
@@ -248,6 +352,25 @@ $images = glob('images/*.*', GLOB_BRACE);
         // Apply theme on initial load
         applyTheme(localStorage.getItem('theme') || 'light');
 
+        function applyInputMode(mode) {
+            localStorage.setItem('inputMode', mode);
+            if (mode === 'form') {
+                cliView.style.display = 'none';
+                formView.style.display = 'block';
+                cliIcon.classList.add('hidden');
+                formIcon.classList.remove('hidden');
+            } else { // CLI mode
+                cliView.style.display = 'flex';
+                formView.style.display = 'none';
+                cliIcon.classList.remove('hidden');
+                formIcon.classList.add('hidden');
+            }
+        }
+        modeToggle.addEventListener('click', () => {
+            const newMode = cliView.style.display === 'none' ? 'cli' : 'form';
+            applyInputMode(newMode);
+        });
+
         // --- CLI Logic ---
         cliInput.addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
@@ -273,6 +396,192 @@ $images = glob('images/*.*', GLOB_BRACE);
             }
         });
 
+        
+         // === UNIVERSAL COMMAND SENDER ===
+        function sendCommand(command) {
+            appendToCLI(`<span class="text-gray-500">> ${command}</span>`);
+            cliInput.value = '';
+            fetch('index.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ command })
+            })
+            .then(response => response.json())
+            .then(data => {
+                appendToCLI(`<span class="${data.message.startsWith('ERROR') ? 'text-red-400' : 'text-yellow-400'}">${data.message}</span>`);
+                if (data.refresh) {
+                    refreshTable(data.search);
+                }
+            });
+        }
+        
+        // === CLI LOGIC ===
+        cliInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                const command = cliInput.value.trim();
+                if (command) {
+                    sendCommand(command);
+                }
+            }
+        });
+
+        // === FORM LOGIC ===
+        function showForm(type, data = {}) {
+            formActionSelect.style.display = 'none';
+            formContainer.style.display = 'block';
+            formTitle.textContent = `${type.charAt(0).toUpperCase() + type.slice(1)} Data`;
+
+            // Reset forms
+            insertForm.reset();
+            UpdateForm.reset();
+            SearchForm.reset();
+            deleteForm.reset();
+            insertForm.style.display = 'none';
+            UpdateForm.style.display = 'none';
+            deleteForm.style.display = 'none';
+            SearchForm.style.display = 'none';
+            searchInputContainer.style.display = 'none';
+            deletePrompt.style.display = 'none';
+
+            if (type === 'insert') {
+                insertForm.style.display = 'block';
+                document.getElementById('insert-id').value = data.id || '';
+                document.getElementById('insert-name').value = data.name || '';
+                document.getElementById('insert-category').value = data.category || '';
+                document.getElementById('insert-price').value = data.price || '';
+                document.getElementById('insert-photo').value = data.photo || '';
+                
+                formSubmitButton.className = 'form-button';
+                formSubmitButton.classList.add('form-button-green');
+                formSubmitButton.textContent = 'Insert Data';
+            } else if (type === 'update') {
+                UpdateForm.style.display = 'block';
+                document.getElementById('update-id').value = data.id || '';
+                document.getElementById('update-name').value = data.name || '';
+                document.getElementById('update-category').value = data.category || '';
+                document.getElementById('update-price').value = data.price || '';
+                document.getElementById('update-photo').value = data.photo || '';
+                
+                formSubmitButton.className = 'form-button';
+                formSubmitButton.classList.add('form-button-blue');
+                formSubmitButton.textContent = 'Update Data';
+                
+            } else if (type === 'delete') {
+                deleteForm.style.display = 'block';
+                document.getElementById('form-id-delete').value = data.id || '';
+                deletePrompt.style.display = 'block';
+                formSubmitButtonAlt.className = 'form-button form-button-red';
+                formSubmitButtonAlt.textContent = 'Delete Data';
+            } else if (type === 'search') {
+                SearchForm.style.display = 'block';
+                searchInputContainer.style.display = 'block';
+                formSubmitButtonAlt.className = 'form-button form-button-gray';
+                formSubmitButtonAlt.textContent = 'Search Data';
+            }
+        }
+
+        formActionSelect.addEventListener('click', (e) => {
+            if (e.target.tagName === 'BUTTON') {
+                const formType = e.target.dataset.form;
+                showForm(formType);
+                // if (formType === 'insert' || formType === 'search') {
+                //  } else {
+                //     alert(`Please select an item from the table by clicking its 'Edit' or 'Delete' button first.`);
+                //  }
+            }
+        });
+        
+        backToActionsBtn.addEventListener('click', () => {
+            formActionSelect.style.display = 'flex';
+            formContainer.style.display = 'none';
+        });
+
+
+        insertForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = document.getElementById('insert-id').value;
+            const name = document.getElementById('insert-name').value;
+            const category = document.getElementById('insert-category').value;
+            const price = document.getElementById('insert-price').value;
+            const photo = document.getElementById('insert-photo').value;
+
+            let command;
+            command = `INSERT "${name}" "${category}" ${price} "${photo}"`;
+            sendCommand(command);
+            backToActionsBtn.click(); // Go back to action list
+        });
+
+        UpdateForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const id = document.getElementById('update-id').value;
+            const name = document.getElementById('update-name').value;
+            const category = document.getElementById('update-category').value;
+            const price = document.getElementById('update-price').value;
+            const photo = document.getElementById('update-photo').value;
+
+            let command;
+            command = `UPDATE ${id} "${name}" "${category}" ${price} "${photo}"`;
+            sendCommand(command);
+            backToActionsBtn.click(); // Go back to action list
+        });
+        
+        deleteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let command;
+            // The ID is stored on the form submit button itself
+            const id = document.getElementById('form-id-delete').value;
+            command = `DELETE ${id}`;
+            
+            sendCommand(command);
+            backToActionsBtn.click();
+        });
+        
+        SearchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let command;
+            if (searchInputContainer.style.display === 'block') { // SEARCH
+                const name = document.getElementById('form-search-name').value;
+                command = `SEARCH "${name}"`;
+            }
+            sendCommand(command);
+            backToActionsBtn.click();
+        });
+
+        // === TABLE BUTTONS LOGIC (EVENT DELEGATION) ===
+        tableContainer.addEventListener('click', (e) => {
+            const editBtn = e.target.closest('.edit-btn');
+            const deleteBtn = e.target.closest('.delete-btn');
+
+            if (editBtn) {
+                const data = { ...editBtn.dataset }; // Clone dataset
+                applyInputMode('form');
+                showForm('update', data);
+            }
+
+            if (deleteBtn) {
+                const data = { ...deleteBtn.dataset };
+                formSubmitButtonAlt.dataset.deleteId = data.id; // Store ID for submission
+                applyInputMode('form');
+                showForm('delete', data);
+            }
+        });
+
+        // === INITIAL PAGE LOAD ===
+        function init() {
+            // Apply theme
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            applyTheme(savedTheme || (systemPrefersDark ? 'dark' : 'light'));
+            
+            // Apply input mode
+            const savedInputMode = localStorage.getItem('inputMode') || 'cli';
+            applyInputMode(savedInputMode);
+
+            // Initial table load
+            refreshTable();
+        }
+
+         // === UTILITY FUNCTIONS (UNCHANGED) ===
         function appendToCLI(message) {
             const output = document.createElement('p');
             output.innerHTML = message;
