@@ -11,7 +11,7 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 
 # Dokumentasi & Penjelasan
 Untuk alur dalam __C++__, __Java__, dan __Python__, Setelah program dijalankan, user dapat memilih satu dari enam opsi command:
-- `ADD` untuk menambahkan data baru (ADD "[Name]" "[Category]" [Price]),
+- `INSERT` untuk menambahkan data baru (ADD "[Name]" "[Category]" [Price]),
 - `DELETE` untuk menghapus data (DELETE [ID]),
 - `UPDATE` untuk mengubah data (UPDATE [ID] "[Name]" "[Category]" [Price]),
 - `SEARCH` untuk mencari data berdasarkan nama (SEARCH "[Name]"),
@@ -21,7 +21,7 @@ Untuk alur dalam __C++__, __Java__, dan __Python__, Setelah program dijalankan, 
 Catatan:
 - Format penulisan command dapat dilihat dengan menjalankan command `ELECTRONIC`,
 - ID pada program __auto increment__ atau akan otomatis di-set,
-- Opsi command bersifat __case-insensitive__, yaitu tetap dapat dioperasikan walaupun command adalah `add`, `aDd`, `DELete`, dan lain lain,
+- Opsi command bersifat __case-insensitive__, yaitu tetap dapat dioperasikan walaupun command adalah `insert`, `InSeRt`, `deLEte`, dan lain lain,
 - Jika command yang dimasukkan di luar dari pilihan, program akan menampilkan pesan "__Command not found!__",
 - Jika menjalankan command `SHOW` atau `SEARCH` dengan data kosong, program akan menampilkan pesan "__Data is empty!__",
 - Jika menjalankan command `SEARCH` dengan nama yang tidak ada pada list data, program akan menampilkan pesan "__Data with name \'[Nama]\' not found!__", dan
@@ -29,25 +29,32 @@ Catatan:
 
 ## C++
 <div>
-    <img src="Dokumentasi/cpp1.png">
-    <img src="Dokumentasi/cpp2.png">
-    <img src="Dokumentasi/cpp3.png">
-    <img src="Dokumentasi/cpp4.png">
-    <img src="Dokumentasi/cpp5.png">
+    <img src="Dokumentasi/cpp1.png" style="width: 32%;">
+    <img src="Dokumentasi/cpp2.png" style="width: 32%;">
+    <img src="Dokumentasi/cpp3.png" style="width: 32%;">
+    <img src="Dokumentasi/cpp4.png" style="width: 32%;">
+    <img src="Dokumentasi/cpp5.png" style="width: 32%;">
+    <img src="Dokumentasi/cpp6.png" style="width: 32%;">
 </div>
 
 ## JAVA
 <div>
-<!--     <img src=".java/Screenshots/1.png" style="width: 32%;">
-    <img src=".java/Screenshots/2.png" style="width: 32%;">
-    <img src=".java/Screenshots/3.png" style="width: 32%;"> -->
+    <img src="Dokumentasi/java1.png" style="width: 32%;">
+    <img src="Dokumentasi/java2.png" style="width: 32%;">
+    <img src="Dokumentasi/java3.png" style="width: 32%;">
+    <img src="Dokumentasi/java4.png" style="width: 32%;">
+    <img src="Dokumentasi/java5.png" style="width: 32%;">
+    <img src="Dokumentasi/java6.png" style="width: 32%;">
 </div>
 
 ## PYTHON
 <div>
-<!--     <img src=".py/Screenshots/1.png" style="width: 32%;">
-    <img src=".py/Screenshots/2.png" style="width: 32%;">
-    <img src=".py/Screenshots/3.png" style="width: 32%;"> -->
+    <img src="Dokumentasi/py1.png" style="width: 32%;">
+    <img src="Dokumentasi/py2.png" style="width: 32%;">
+    <img src="Dokumentasi/py3.png" style="width: 32%;">
+    <img src="Dokumentasi/py4.png" style="width: 32%;">
+    <img src="Dokumentasi/py5.png" style="width: 32%;">
+    <img src="Dokumentasi/py6.png" style="width: 32%;">
 </div>
 
 ## PHP
@@ -58,10 +65,10 @@ Untuk alur dalam __PHP__, program akan ditampilkan pada laman web seperti localh
 - Tampilan CLI untuk wadah command yang dapat dimasukkan user,
 
 User dapat memilih satu dari empat opsi command:
-- `ADD` untuk menambahkan data baru (ADD "\<Name\>" "\<Category\>" \<Price\> "\<Photo\>"),
-- `DELETE` untuk menghapus data (DELETE \<ID\>),
-- `UPDATE` untuk mengubah data (UPDATE \<ID\> "\<Name\>" "\<Category\>" \<Price\> "\<Photo\>"), dan
-- `SEARCH` untuk mencari data berdasarkan nama (SEARCH "\<Name\>").
+- `INSERT` untuk menambahkan data baru (ADD "\[Name]" "[Category]" [Price] "[Photo]"),
+- `UPDATE` untuk mengubah data (UPDATE [ID] "[Name]" "[Category]" [Price] "[Photo]"), dan
+- `DELETE` untuk menghapus data (DELETE [ID]),
+- `SEARCH` untuk mencari data berdasarkan nama (SEARCH "[Name]").
 
 Catatan:
 - Format penulisan command dapat dilihat dengan menjalankan command `ELECTRONIC`,

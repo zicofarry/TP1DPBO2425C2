@@ -69,16 +69,11 @@ void outro() {
     delay();
 
     cout << PINK "  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"; delay();
-    cout << "   \\\\        " << BRIGHT_YELLOW "SELAMAT TINGGAL DI ELECTRONIC SHOP" << PINK "        //\n"; delay();
-    cout << "    \\\\         " << BRIGHT_YELLOW "TUGAS PRAKTIKUM 1 (TP1) DESAIN" << PINK "         //\n"; delay();
-    cout << "     \\\\           " << BRIGHT_YELLOW "PEMROGRAMAN BERORIENTASI" << PINK "           //\n"; delay();
-    cout << "      \\\\            " << BRIGHT_YELLOW "OBJEK (DPBO), GACOR!!" << PINK "           //\n"; delay();
-    cout << "       \\\\                 " << BRIGHT_YELLOW "MANTAP!!" << PINK "                 // \n"; delay();
-    // cout << "   \\\\        " << BRIGHT_YELLOW "SELAMAT TINGGAL DI ZICOFARRY DBMS" << PINK "        //\n"; delay();
-    // cout << "    \\\\         " << BRIGHT_YELLOW "TUGAS MASA DEPAN DASAR-DASAR" << PINK "          //\n"; delay();
-    // cout << "     \\\\           " << BRIGHT_YELLOW "PEMROGRAMAN, DEMI MASA" << PINK "            //\n"; delay();
-    // cout << "      \\\\             " << BRIGHT_YELLOW "DEPAN YANG LEBIH" << PINK "              //\n"; delay();
-    // cout << "       \\\\                 " << BRIGHT_YELLOW "CERAH!!" << PINK "                 // \n"; delay();
+    cout << "   \\\\        " << BRIGHT_YELLOW "SELAMAT TINGGAL DI ELECTRONIC SHOP" << PINK "       //\n"; delay();
+    cout << "    \\\\         " << BRIGHT_YELLOW "TUGAS PRAKTIKUM 1 (TP1) DESAIN" << PINK "        //\n"; delay();
+    cout << "     \\\\           " << BRIGHT_YELLOW "PEMROGRAMAN BERORIENTASI" << PINK "          //\n"; delay();
+    cout << "      \\\\            " << BRIGHT_YELLOW "OBJEK (DPBO), GACOR!!" << PINK "          //\n"; delay();
+    cout << "       \\\\                 " << BRIGHT_YELLOW "MANTAP!!" << PINK "                // \n"; delay();
     cout << PINK "        vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv\n" RESET; delay();
 
     cout << CYAN "         -----------------------------------------\n"; delay();
