@@ -5,53 +5,53 @@ Saya Muhammad 'Azmi Salam dengan NIM 2406010 mengerjakan Tugas Praktikum 1 pada 
 ```
 Main
 ├── CPP/
-│ ├── Elektronic.cpp
-│ └── main.cpp
+│   ├── Elektronic.cpp
+│   └── main.cpp
 │
 ├── Java/
-│ ├── Elektronic.java
-│ └── Main.java
+│   ├── Elektronic.java
+│   └── Main.java
 │
 ├── Python/
-│ ├── elektronic.py
-│ └── main.py
+│   ├── elektronic.py
+│   └── main.py
 │
 ├── PHP/
-│ ├── Elektronic.php
-│ └── index.php
+│   ├── Elektronic.php
+│   └── index.php
 │
 ├── Dokumentasi/
-│ ├── cpp
-│ |    ├── cpp1.php
-│ |    ├── cpp2.php
-│ |    ├── cpp3.php
-│ |    ├── cpp4.php
-│ |    ├── cpp5.php
-│ |    └── cpp6.php
-│ |
-│ ├── java
-│ |    ├── java1.php
-│ |    ├── java2.php
-│ |    ├── java3.php
-│ |    ├── java4.php
-│ |    ├── java5.php
-│ |    └── java6.php
-│ |
-│ ├── py
-│ |    ├── py1.php
-│ |    ├── py2.php
-│ |    ├── py3.php
-│ |    ├── py4.php
-│ |    ├── py5.php
-│ |    └── py6.php
-│ |
-│ └── php
-│      ├── php1.php
-│      ├── php2.php
-│      ├── php3.php
-│      ├── php4.php
-│      ├── php5.php
-│      └── php6.php
+│   ├── cpp
+│   |   ├── cpp1.php
+│   |   ├── cpp2.php
+│   |   ├── cpp3.php
+│   |   ├── cpp4.php
+│   |   ├── cpp5.php
+│   |   └── cpp6.php
+│   |
+│   ├── java
+│   |   ├── java1.php
+│   |   ├── java2.php
+│   |   ├── java3.php
+│   |   ├── java4.php
+│   |   ├── java5.php
+│   |   └── java6.php
+│   |
+│   ├── py
+│   |   ├── py1.php
+│   |   ├── py2.php
+│   |   ├── py3.php
+│   |   ├── py4.php
+│   |   ├── py5.php
+│   |   └── py6.php
+│   |
+│   └── php
+│       ├── php1.php
+│       ├── php2.php
+│       ├── php3.php
+│       ├── php4.php
+│       ├── php5.php
+│       └── php6.php
 │
 └── README.md
 ```
