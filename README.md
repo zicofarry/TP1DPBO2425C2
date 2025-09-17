@@ -11,10 +11,10 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 
 # Dokumentasi & Penjelasan
 Untuk alur dalam __C++__, __Java__, dan __Python__, Setelah program dijalankan, user dapat memilih satu dari enam opsi command:
-- `ADD` untuk menambahkan data baru (ADD "[Name]" "[Category]" \<Price\>),
-- `DELETE` untuk menghapus data (DELETE \<ID\>),
-- `UPDATE` untuk mengubah data (UPDATE \<ID\> "\<Name\>" "\<Category\>" \<Price\>),
-- `SEARCH` untuk mencari data berdasarkan nama (SEARCH "\<Name\>"),
+- `ADD` untuk menambahkan data baru (ADD "[Name]" "[Category]" [Price]),
+- `DELETE` untuk menghapus data (DELETE [ID]),
+- `UPDATE` untuk mengubah data (UPDATE [ID] "[Name]" "[Category]" [Price]),
+- `SEARCH` untuk mencari data berdasarkan nama (SEARCH "[Name]"),
 - `SHOW` untuk menunjukkan semua data yang ada, dan
 - `EXIT` untuk keluar atau mengakhiri program.
 
@@ -24,7 +24,7 @@ Catatan:
 - Opsi command bersifat __case-insensitive__, yaitu tetap dapat dioperasikan walaupun command adalah `add`, `aDd`, `DELete`, dan lain lain,
 - Jika command yang dimasukkan di luar dari pilihan, program akan menampilkan pesan "__Command not found!__",
 - Jika menjalankan command `SHOW` atau `SEARCH` dengan data kosong, program akan menampilkan pesan "__Data is empty!__",
-- Jika menjalankan command `SEARCH` dengan nama yang tidak ada pada list data, program akan menampilkan pesan "__Data with name \'\<Nama\>\' not found!__", dan
+- Jika menjalankan command `SEARCH` dengan nama yang tidak ada pada list data, program akan menampilkan pesan "__Data with name \'[Nama]\' not found!__", dan
 - Program akan menerima input hingga command `EXIT`.
 
 ## C++
