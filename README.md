@@ -29,9 +29,11 @@ Catatan:
 
 ## C++
 <div>
-<!--     <img src=".cpp/Screenshots/1.png" style="width: 32%;">
-    <img src=".cpp/Screenshots/2.png" style="width: 32%;">
-    <img src=".cpp/Screenshots/3.png" style="width: 32%;"> -->
+    <img src="Document/cpp1.png" style="width: 32%;">
+    <img src="Document/cpp2.png" style="width: 32%;">
+    <img src="Document/cpp3.png" style="width: 32%;">
+    <img src="Document/cpp4.png" style="width: 32%;">
+    <img src="Document/cpp5.png" style="width: 32%;">
 </div>
 
 ## JAVA
