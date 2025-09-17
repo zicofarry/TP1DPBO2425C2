@@ -11,7 +11,7 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 
 # Dokumentasi & Penjelasan
 Untuk alur dalam __C++__, __Java__, dan __Python__, Setelah program dijalankan, user dapat memilih satu dari enam opsi command:
-- `INSERT` untuk menambahkan data baru (ADD "[Name]" "[Category]" [Price]),
+- `INSERT` untuk menambahkan data baru (INSERT "[Name]" "[Category]" [Price]),
 - `DELETE` untuk menghapus data (DELETE [ID]),
 - `UPDATE` untuk mengubah data (UPDATE [ID] "[Name]" "[Category]" [Price]),
 - `SEARCH` untuk mencari data berdasarkan nama (SEARCH "[Name]"),
@@ -65,7 +65,7 @@ Untuk alur dalam __PHP__, program akan ditampilkan pada laman web seperti localh
 - Tampilan CLI untuk wadah command yang dapat dimasukkan user,
 
 User dapat memilih satu dari empat opsi command:
-- `INSERT` untuk menambahkan data baru (ADD "\[Name]" "[Category]" [Price] "[Photo]"),
+- `INSERT` untuk menambahkan data baru (INSERT "\[Name]" "[Category]" [Price] "[Photo]"),
 - `UPDATE` untuk mengubah data (UPDATE [ID] "[Name]" "[Category]" [Price] "[Photo]"), dan
 - `DELETE` untuk menghapus data (DELETE [ID]),
 - `SEARCH` untuk mencari data berdasarkan nama (SEARCH "[Name]").
@@ -73,7 +73,7 @@ User dapat memilih satu dari empat opsi command:
 Catatan:
 - Format penulisan command dapat dilihat dengan menjalankan command `ELECTRONIC`,
 - ID pada program __auto increment__ atau akan otomatis di-set,
-- Opsi command bersifat __case-insensitive__, yaitu tetap dapat dioperasikan walaupun command adalah `add`, `aDd`, `DELete`, dan lain lain,
+- Opsi command bersifat __case-insensitive__, yaitu tetap dapat dioperasikan walaupun command adalah `insert`, `UpdaTe`, `deLeTe`, dan lain lain,
 - Jika command yang dimasukkan di luar dari pilihan, program akan menampilkan pesan "__Command not found!__",
 - Jika menjalankan command `SEARCH` dengan nama yang tidak ada pada list data, program akan menampilkan pesan "__Data with name \'\<Name\>\' not found!__",
 - Program akan menunjukkan hasil pencarian dengan __meng-highlight__ baris yang dicari,
