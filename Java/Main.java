@@ -90,7 +90,7 @@ public class Main{
             if(!inputCmd.equals("EXIT")){
                 Electronic now;
                 
-                if(inputCmd.equals("ADD")){
+                if(inputCmd.equals("INSERT")){
                     String[] parts = str.split("\"");
                     String name = parts[1].trim();
                     String category = parts[3].trim();
@@ -98,7 +98,7 @@ public class Main{
 
                     now = new Electronic(idx, name, category, price);
                     v.add(now); idx++;
-                    System.out.print("SUCCESS: A new data has been addess, lalala yeyeyeye~\n\n");
+                    System.out.print("SUCCESS: A new data has been added, lalala yeyeyeye~\n\n");
                 }else if(inputCmd.equals("UPDATE")){
                     String[] parts = str.split("\"");
                     int id = Integer.parseInt(parts[0].trim());

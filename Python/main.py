@@ -22,7 +22,7 @@ def main():
         if in_cmd == "EXIT":
             stop = True
         
-        elif in_cmd == "ADD":
+        elif in_cmd == "INSERT":
             parts = str.split('"')
             name = parts[1].strip()
             category = parts[3].strip()

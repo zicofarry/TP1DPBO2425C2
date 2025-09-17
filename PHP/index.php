@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $cmd = strtoupper($parts[0]);
 
     switch ($cmd) {
-        case 'ADD':
+        case 'INSERT':
             $addParts = explode('"', $command);
             $addName = trim($addParts[1]);
             $addCategory = trim($addParts[3]);
@@ -142,7 +142,7 @@ $images = glob('images/*.*', GLOB_BRACE);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="icon.jpg">
+    <link rel="icon" type="image/png" href="images/icon.jpg">
     <title>Electronics Shop</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
