@@ -61,7 +61,7 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 - Price
 - Photo (khusus PHP)
 
-# Panduan
+# Flow Code & Panduan Penggunaan
 ```
 ============================================================================
 |+------------------------------------------------------------------------+|
@@ -114,6 +114,8 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 ============================================================================
 ```
 
+# Dokumentasi
+
 ## C++
 <div>
     <img src="Dokumentasi/cpp/cpp2.png" style="width: 32%;">
@@ -126,20 +128,20 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 
 ## JAVA
 <div>
-    <img src="Dokumentasi/java/java1.png" style="width: 32%;">
     <img src="Dokumentasi/java/java2.png" style="width: 32%;">
     <img src="Dokumentasi/java/java3.png" style="width: 32%;">
     <img src="Dokumentasi/java/java4.png" style="width: 32%;">
+    <img src="Dokumentasi/java/java1.png" style="width: 32%;">
     <!-- <img src="Dokumentasi/java/java5.png" style="width: 32%;"> -->
     <img src="Dokumentasi/java/java6.png" style="width: 32%;">
 </div>
 
 ## PYTHON
 <div>
-    <img src="Dokumentasi/py/py1.png" style="width: 32%;">
     <img src="Dokumentasi/py/py2.png" style="width: 32%;">
     <img src="Dokumentasi/py/py3.png" style="width: 32%;">
     <img src="Dokumentasi/py/py4.png" style="width: 32%;">
+    <img src="Dokumentasi/py/py1.png" style="width: 32%;">
     <!-- <img src="Dokumentasi/py/py5.png" style="width: 32%;"> -->
     <img src="Dokumentasi/py/py6.png" style="width: 32%;">
 </div>
