@@ -148,7 +148,7 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 
 ## PHP
 <div>
-    Klik untuk melihat vidio dokumentasi
+    <a>Klik untuk melihat vidio dokumentasi</a>
     <a href="https://youtu.be/3H8kubvpiJM"><img src="https://img.shields.io/badge/YouTube-%23FF0000.svg?style=for-the-badge&logo=YouTube&logoColor=white" /></a>
-    <!-- <video src="Dokumentasi/php/php.mkv" controls width="600"></video> -->
+    <video src="Dokumentasi/php/php.mkv" controls width="600"></video>
 </div>
