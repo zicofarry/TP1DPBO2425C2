@@ -19,11 +19,11 @@ Main
 ├── PHP/
 │   ├── Elektronic.php
 │   ├── index.php
-│   └── images
+│   └── images/
 │       └── *.jpg
 │
 ├── Dokumentasi/
-│   ├── cpp
+│   ├── cpp/
 │   |   ├── cpp1.php
 │   |   ├── cpp2.php
 │   |   ├── cpp3.php
@@ -31,7 +31,7 @@ Main
 │   |   ├── cpp5.php
 │   |   └── cpp6.php
 │   |
-│   ├── java
+│   ├── java/
 │   |   ├── java1.php
 │   |   ├── java2.php
 │   |   ├── java3.php
@@ -39,7 +39,7 @@ Main
 │   |   ├── java5.php
 │   |   └── java6.php
 │   |
-│   ├── py
+│   ├── py/
 │   |   ├── py1.php
 │   |   ├── py2.php
 │   |   ├── py3.php
@@ -47,7 +47,7 @@ Main
 │   |   ├── py5.php
 │   |   └── py6.php
 │   |
-│   └── php
+│   └── php/
 │       └── php.mkv
 │
 └── README.md
@@ -116,10 +116,10 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 
 ## C++
 <div>
-    <img src="Dokumentasi/cpp/cpp1.png" style="width: 32%;">
     <img src="Dokumentasi/cpp/cpp2.png" style="width: 32%;">
     <img src="Dokumentasi/cpp/cpp3.png" style="width: 32%;">
     <img src="Dokumentasi/cpp/cpp4.png" style="width: 32%;">
+    <img src="Dokumentasi/cpp/cpp1.png" style="width: 32%;">
     <!-- <img src="Dokumentasi/cpp/cpp5.png" style="width: 32%;"> -->
     <img src="Dokumentasi/cpp/cpp6.png" style="width: 32%;">
 </div>
