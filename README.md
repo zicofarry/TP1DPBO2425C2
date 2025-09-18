@@ -13,12 +13,14 @@ Main
 │   └── Main.java
 │
 ├── Python/
-│   ├── elektronic.py
+│   ├── Elektronic.py
 │   └── main.py
 │
 ├── PHP/
 │   ├── Elektronic.php
-│   └── index.php
+│   ├── index.php
+│   └── images
+│       └── *.jpg
 │
 ├── Dokumentasi/
 │   ├── cpp
@@ -46,12 +48,7 @@ Main
 │   |   └── py6.php
 │   |
 │   └── php
-│       ├── php1.php
-│       ├── php2.php
-│       ├── php3.php
-│       ├── php4.php
-│       ├── php5.php
-│       └── php6.php
+│       └── php.mkv
 │
 └── README.md
 ```
@@ -149,10 +146,5 @@ Program terdiri dari __1__ class, yaitu __Electronic__ yang terdiri dari atribut
 
 ## PHP
 <div>
-    <img src="Dokumentasi/php/php1.png" style="width: 32%;">
-    <img src="Dokumentasi/php/php2.png" style="width: 32%;">
-    <img src="Dokumentasi/php/php3.png" style="width: 32%;">
-    <img src="Dokumentasi/php/php4.png" style="width: 32%;">
-    <!-- <img src="Dokumentasi/php/php5.png" style="width: 32%;"> -->
-    <img src="Dokumentasi/php/php6.png" style="width: 32%;">
+    <video src="Dokumentasi/php/php.mkv" controls width="600"></video>
 </div>
