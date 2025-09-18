@@ -36,14 +36,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         case 'DELETE':
             $deleteId = intval(trim($parts[1]));
-            foreach ($list as $key => $item) {
+            $found = false;
+
+            reset($list); // mulai dari awal array
+            while (($key = key($list)) !== null && !$found) {
+                $item = current($list);
                 if ($item->getId() === $deleteId) {
                     unset($list[$key]);
-                    break;
+                    $found = true;
                 }
+                next($list); // maju ke elemen berikutnya
             }
-            $response["message"] = "SUCCSESS: Data with ID $deleteId has been deleted.";
-            $response["refresh"] = true;
+
+            if ($found) {
+                $response["message"] = "SUCCESS: Data with ID $deleteId has been deleted.";
+                $response["refresh"] = true;
+            } else {
+                $response["message"] = "ERROR: Data with ID $deleteId not found.";
+                $response["refresh"] = false;
+            }
             break;
 
         case 'UPDATE':
@@ -54,35 +65,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $updatePrice = intval(trim($updateParts[4]));
             $updatePhoto = trim($updateParts[5]);
             $found = false;
-            foreach ($list as &$item) {
+            reset($list);
+
+            while (($key = key($list)) !== null && !$found) {
+                $item = &$list[$key]; // pakai reference supaya bisa update langsung
                 if ($item->getId() === $updateId) {
                     $item->setName($updateName);
                     $item->setCategory($updateCategory);
                     $item->setPrice($updatePrice);
                     $item->setPhoto($updatePhoto);
+
                     $response["message"] = "SUCCESS: Data with ID $updateId has been updated.";
                     $response["refresh"] = true;
                     $found = true;
-                    break;
                 }
+
+                next($list);
             }
-            if (!$found) $response["message"] = "ERROR: Data with ID $updateId not found.";
+
+            if (!$found) {
+                $response["message"] = "ERROR: Data with ID $updateId not found.";
+                $response["refresh"] = false;
+            }
             break;
 
         case 'SEARCH':
             $searchParts = explode('"', $command);
             $searchName = trim($searchParts[1]);
             $found = false;
-            foreach ($list as $item) {
+            reset($list);
+            while (key($list) !== null && !$found) {
+                $item = current($list);
+
                 if (stripos($item->getName(), $searchName) !== false) {
                     $found = true;
                     $response["search"] = $item->getId();
                     $response["message"] = "Data Found!";
                     $response["refresh"] = true;
-                    break; 
+                } else {
+                    next($list);
                 }
             }
-            if (!$found) $response["message"] = "ERROR: Data with name '{$searchName}' not found.";
+
+            if (!$found) {
+                $response["message"] = "ERROR: Data with name '{$searchName}' not found.";
+            }
             break;
 
         case 'HELP':
@@ -106,15 +133,26 @@ if (isset($_GET['action']) && $_GET['action'] === 'list') {
     $search = isset($_GET['search']) ? $_GET['search'] : null;
     ?>
     <table class="w-full border-separate" style="border-collapse: collapse;">
-        <thead class="bg-gray-200 dark:bg-gray-700 sticky top-0 shadow-md">
+        <thead class="bg-gray-100 dark:bg-gray-800 sticky top-0 shadow-md">
             <tr>
-                <th class="py-3 px-4 w-[60px] text-right border-b border-gray-300 dark:border-gray-600">ID</th>
-                <th class="py-3 px-4 text-left border-b border-gray-300 dark:border-gray-600">Name</th>
-                <th class="py-3 px-4 w-[200px] text-left border-b border-gray-300 dark:border-gray-600">Category</th>
-                <th class="py-3 px-4 w-[180px] text-right border-b border-gray-300 dark:border-gray-600">Price (Rp)</th>
-                <th class="p-2 w-[110px] text-center border-b border-gray-300 dark:border-gray-600">Photo</th>
+                <th class="py-3 px-4 w-[60px] text-right border-b border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200">
+                    ID
+                </th>
+                <th class="py-3 px-4 text-left border-b border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200">
+                    Name
+                </th>
+                <th class="py-3 px-4 w-[200px] text-left border-b border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200">
+                    Category
+                </th>
+                <th class="py-3 px-4 w-[180px] text-center border-b border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200">
+                    Price
+                </th>
+                <th class="p-2 w-[110px] text-center border-b border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-200">
+                    Photo
+                </th>
             </tr>
         </thead>
+
         <tbody>
             <?php foreach ($list as $index => $item) { ?>
             <tr class="hover:bg-sky-100 dark:hover:bg-sky-900 transition-colors duration-200 
@@ -124,8 +162,12 @@ if (isset($_GET['action']) && $_GET['action'] === 'list') {
                 <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-800"><?php echo htmlspecialchars($item->getCategory()); ?></td>
                 <td class="py-2 px-4 border-b border-gray-200 dark:border-gray-800 text-right"><?php echo number_format($item->getPrice()); ?></td>
                 <td class="p-2 text-center border-b border-gray-200 dark:border-gray-800">
-                    <img src="images/<?php echo htmlspecialchars($item->getPhoto()); ?>" class="w-full h-[65px] object-cover mx-auto rounded-md shadow-sm">
+                    <div class="w-[65px] aspect-square mx-auto">
+                        <img src="images/<?php echo htmlspecialchars($item->getPhoto()); ?>" 
+                            class="w-full h-full object-contain rounded-md shadow-sm">
+                    </div>
                 </td>
+
             </tr>
             <?php } ?>
         </tbody>
@@ -164,6 +206,58 @@ $images = glob('images/*.*', GLOB_BRACE);
         html.dark ::-webkit-scrollbar-thumb { background: #555; }
         ::-webkit-scrollbar-thumb:hover { background: #555; }
         html.dark ::-webkit-scrollbar-thumb:hover { background: #777; }
+        /* === FORM THEME FIX === */
+        .form-label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.25rem;
+            transition: color 0.3s;
+        }
+        .theme-light .form-label { color: #1f2937; } /* abu gelap */
+        .theme-dark .form-label { color: #f9fafb; } /* putih */
+
+        /* FORM CONTAINER */
+        .form-container {
+            max-width: 500px;     /* batas lebar maksimal form */
+            margin: 0 auto;       /* biar selalu center */
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light mode */
+        .theme-light .form-container {
+            background-color: #ffffff;   /* putih */
+            color: #1f2937;              /* abu gelap */
+        }
+
+        /* Dark mode */
+        .theme-dark .form-container {
+            background-color: #1e293b;   /* biru gelap */
+            color: #f9fafb;              /* putih */
+        }
+
+        .form-input {
+            width: 100%;
+            max-width: 100%;
+            padding: 0.1rem; 
+            border-radius: 0.5rem;
+            border: 1px solid;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+            box-sizing: border-box;
+        }
+        .theme-light .form-input {
+            background-color: #f9fafb;  /* abu muda */
+            color: #1f2937;
+            border: 1px solid #d1d5db;
+        }
+        .theme-dark .form-input {
+            background-color: #1f2937;  /* abu gelap */
+            color: #f9fafb;
+            border: 1px solid #4b5563;
+        }
+
     </style>
 </head>
 <body class="theme-light">
@@ -215,7 +309,7 @@ $images = glob('images/*.*', GLOB_BRACE);
                 </div>
             </div>
 
-            <div id="form-view" class="hidden h-full bg-white dark:bg-gray-800 p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
+            <div id="form-view" class="hidden h-full card bg-gray-900 dark:bg-black p-4 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700">
                 <div id="form-action-select" class="h-full flex flex-col justify-center gap-4">
                     <button data-form="insert" class="form-button form-button-green">INSERT Data</button>
                     <button data-form="update" class="form-button form-button-blue">UPDATE Data</button>
